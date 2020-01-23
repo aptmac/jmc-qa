@@ -17,11 +17,11 @@ mvn jetty:run -f $JMC_THIRD_PARTY/pom.xml &
 jetty_pid=$!;
 
 # build jmc-core
-mvn clean install -f $JMC_CORE/pom.xml || { echo $JMC_CORE_BUILD_ERROR; kill $jetty_pid; exit 1; };
+mvn clean install --quiet -f $JMC_CORE/pom.xml || { echo $JMC_CORE_BUILD_ERROR; kill $jetty_pid; exit 1; };
 
 # build jmc w/spotbugs enabled
 cd $JMC_ROOT;
-mvn verify || { echo $JMC_BUILD_ERROR; kill $jetty_pid; exit 1;}
+mvn verify --quiet || { echo $JMC_BUILD_ERROR; kill $jetty_pid; exit 1;}
 
 # kill the jetty process
 kill $jetty_pid;
