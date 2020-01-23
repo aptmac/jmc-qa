@@ -1,10 +1,8 @@
+os:
+  - linux
 dist: trusty
 language: java
 jdk: oraclejdk8
-sudo: true
-cache:
-  directories:
-    - $HOME/.m2
 addons:
   apt:
     packages:
@@ -12,4 +10,9 @@ addons:
 install:
   - export DISPLAY=':99.0'
   - Xvfb :99 -screen 0 1920x1080x24 > /dev/null 2>&1 &
-script: scripts/run.sh
+jobs:
+  include:
+    - stage: build
+      script: scripts/1_setup_jmc.sh
+    - stage: uitests
+      script: scripts/2_run_ui_tests.sh

@@ -39,6 +39,6 @@ Lastly, it may be useful to see what the application is doing in the virtual dis
 
 ## Running the scripts
 
-This repo includes three bash scripts, each responsible for a different step of the QA framework. A master script has also been included, that will run the three scripts sequentially.
+This repo includes two bash scripts, each responsible for a different step of the build.
 
-- e.g., `bash scripts/run.sh`
+- e.g., `bash scripts/1_setup_jmc.sh; bash scripts/2_run_ui_tests.sh`
