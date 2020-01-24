@@ -1,5 +1,5 @@
 # JMC QA
-<b>Linux</b> (Ubuntu Trusty) [![Build Status](https://travis-ci.org/aptmac/jmc-qa.svg?branch=master)](https://travis-ci.org/aptmac/jmc-qa)<br>
+<b>Linux</b> (Ubuntu Trusty) [![Build Status](https://travis-ci.org/aptmac/jmc-qa.svg?branch=linux)](https://travis-ci.org/aptmac/jmc-qa)<br>
 <b>macOS</b> (macOS 10.13) [![Build Status](https://travis-ci.org/aptmac/jmc-qa.svg?branch=osx)](https://travis-ci.org/aptmac/jmc-qa)<br>
 <b>Windows</b> (Windows Server 1803) [![Build Status](https://travis-ci.org/aptmac/jmc-qa.svg?branch=windows)](https://travis-ci.org/aptmac/jmc-qa)
 
