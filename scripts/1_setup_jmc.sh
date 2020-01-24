@@ -9,6 +9,10 @@ fi
 # clone the jmc repo
 git clone $JMC_REPO $JMC_ROOT || { echo $CLONE_ERROR; exit 1; };
 
+cd $JMC_ROOT;
+git apply ../patches/remove-babel-update-site.patch
+cd ..;
+
 # setup the p2 repository
 mvn p2:site -f $JMC_THIRD_PARTY/pom.xml || { echo $P2_ERROR; exit 1; };
 

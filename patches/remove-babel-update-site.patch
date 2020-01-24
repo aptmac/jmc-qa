@@ -1,0 +1,142 @@
+diff --git a/application/org.openjdk.jmc.feature.rcp/feature.xml b/application/org.openjdk.jmc.feature.rcp/feature.xml
+index bf9a3b1..db3ea87 100644
+--- a/application/org.openjdk.jmc.feature.rcp/feature.xml
++++ b/application/org.openjdk.jmc.feature.rcp/feature.xml
+@@ -51,18 +51,10 @@
+          id="org.openjdk.jmc.feature.console"
+          version="0.0.0"/>
+ 
+-   <includes
+-         id="org.openjdk.jmc.feature.rcp.ja"
+-         version="0.0.0"/>
+-
+    <includes
+          id="org.openjdk.jmc.feature.core"
+          version="0.0.0"/>
+ 
+-   <includes
+-         id="org.openjdk.jmc.feature.rcp.zh_CN"
+-         version="0.0.0"/>
+-
+    <includes
+          id="org.openjdk.jmc.feature.flightrecorder"
+          version="0.0.0"/>
+@@ -107,24 +99,6 @@
+          version="0.0.0"
+          unpack="false"/>
+ 
+-   <plugin
+-         id="org.openjdk.jmc.rcp.application.ja"
+-         nl="ja_JP,ja"
+-         download-size="0"
+-         install-size="0"
+-         version="0.0.0"
+-         fragment="true"
+-         unpack="false"/>
+-
+-   <plugin
+-         id="org.openjdk.jmc.rcp.application.zh_CN"
+-         nl="zh_CN"
+-         download-size="0"
+-         install-size="0"
+-         version="0.0.0"
+-         fragment="true"
+-         unpack="false"/>
+-
+    <plugin
+          id="org.openjdk.jmc.rcp.intro"
+          download-size="0"
+diff --git a/application/org.openjdk.jmc.updatesite.ide/category.xml b/application/org.openjdk.jmc.updatesite.ide/category.xml
+index 70a664f..7555a58 100644
+--- a/application/org.openjdk.jmc.updatesite.ide/category.xml
++++ b/application/org.openjdk.jmc.updatesite.ide/category.xml
+@@ -59,12 +59,6 @@
+    <feature url="features/org.openjdk.jmc.feature.pde_0.0.0.jar" id="org.openjdk.jmc.feature.pde" version="0.0.0">
+       <category name="Other (Experimental)"/>
+    </feature>
+-   <feature url="features/org.openjdk.jmc.feature.ja_0.0.0.jar" id="org.openjdk.jmc.feature.ja" version="0.0.0">
+-      <category name="Mission Control localization"/>
+-   </feature>
+-   <feature url="features/org.openjdk.jmc.feature.zh_CN_0.0.0.jar" id="org.openjdk.jmc.feature.zh_CN" version="0.0.0">
+-      <category name="Mission Control localization"/>
+-   </feature>
+    <category-def name="Mission Control" label="Mission Control">
+       <description>
+          Eclipse plug-ins for JDK Mission Control
+diff --git a/application/org.openjdk.jmc.updatesite.ide/feature.xml b/application/org.openjdk.jmc.updatesite.ide/feature.xml
+index 4c26e97..bf6dfb1 100644
+--- a/application/org.openjdk.jmc.updatesite.ide/feature.xml
++++ b/application/org.openjdk.jmc.updatesite.ide/feature.xml
+@@ -82,12 +82,4 @@ copyright or other irrelevant stuff in here.
+          id="org.openjdk.jmc.feature.jconsole"
+          version="0.0.0"/>
+ 
+-   <includes
+-         id="org.openjdk.jmc.feature.ja"
+-         version="0.0.0"/>
+-
+-   <includes
+-         id="org.openjdk.jmc.feature.zh_CN"
+-         version="0.0.0"/>
+-
+ </feature>
+diff --git a/application/pom.xml b/application/pom.xml
+index adefed2..fefd4c1 100644
+--- a/application/pom.xml
++++ b/application/pom.xml
+@@ -113,7 +113,6 @@
+ 		<module>org.openjdk.jmc.ui.common</module>
+ 		<module>org.openjdk.jmc.updatesite.ide</module>
+ 		<module>org.openjdk.jmc.updatesite.rcp</module>
+-		<module>l10n</module>
+ 		<module>tests</module>
+ 		<module>coverage</module>
+ 	</modules>
+diff --git a/releng/platform-definitions/platform-definition-2019-09/platform-definition-2019-09.target b/releng/platform-definitions/platform-definition-2019-09/platform-definition-2019-09.target
+index f7f8bc9..0dbb072 100644
+--- a/releng/platform-definitions/platform-definition-2019-09/platform-definition-2019-09.target
++++ b/releng/platform-definitions/platform-definition-2019-09/platform-definition-2019-09.target
+@@ -53,11 +53,6 @@
+             <unit id="org.eclipse.platform.sdk" version="4.13.0.I20190916-1045"/>
+             <repository location="http://download.eclipse.org/releases/2019-09/"/>
+         </location>
+-        <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+-            <unit id="org.eclipse.babel.nls_eclipse_ja.feature.group" version="4.12.0.v20190713060001"/>
+-            <unit id="org.eclipse.babel.nls_eclipse_zh.feature.group" version="4.12.0.v20190713060001"/>
+-            <repository location="https://archive.eclipse.org/technology/babel/update-site/R0.17.0/2019-06/"/>
+-        </location>
+     </locations>
+     <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+ </target>
+diff --git a/releng/platform-definitions/platform-definition-2019-12/platform-definition-2019-12.target b/releng/platform-definitions/platform-definition-2019-12/platform-definition-2019-12.target
+index 35339dd..79c817e 100644
+--- a/releng/platform-definitions/platform-definition-2019-12/platform-definition-2019-12.target
++++ b/releng/platform-definitions/platform-definition-2019-12/platform-definition-2019-12.target
+@@ -54,11 +54,6 @@
+             <unit id="org.eclipse.platform.sdk" version="4.14.0.I20191210-0610"/>
+             <repository location="http://download.eclipse.org/releases/2019-12/"/>
+         </location>
+-        <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+-            <unit id="org.eclipse.babel.nls_eclipse_ja.feature.group" version="4.12.0.v20190713060001"/>
+-            <unit id="org.eclipse.babel.nls_eclipse_zh.feature.group" version="4.12.0.v20190713060001"/>
+-            <repository location="https://archive.eclipse.org/technology/babel/update-site/R0.17.0/2019-06/"/>
+-        </location>
+     </locations>
+     <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+ </target>
+diff --git a/releng/platform-definitions/platform-definition-photon/platform-definition-photon.target b/releng/platform-definitions/platform-definition-photon/platform-definition-photon.target
+index 4f4dea3..0983014 100644
+--- a/releng/platform-definitions/platform-definition-photon/platform-definition-photon.target
++++ b/releng/platform-definitions/platform-definition-photon/platform-definition-photon.target
+@@ -53,11 +53,6 @@
+             <unit id="org.eclipse.platform.sdk" version="4.8.0.I20180611-0500"/>
+             <repository location="http://download.eclipse.org/releases/photon/"/>
+         </location>
+-        <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+-            <unit id="org.eclipse.babel.nls_eclipse_ja.feature.group" version="4.8.0.v20180815020001"/>
+-            <unit id="org.eclipse.babel.nls_eclipse_zh.feature.group" version="4.8.0.v20180815020001"/>
+-            <repository location="http://download.eclipse.org/technology/babel/update-site/R0.16.0/photon/"/>
+-        </location>
+     </locations>
+     <targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+ </target>
