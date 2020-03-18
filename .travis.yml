@@ -1,8 +1,8 @@
 os:
   - linux
-dist: trusty
+dist: xenial
 language: java
-jdk: oraclejdk8
+jdk: openjdk11
 addons:
   apt:
     packages:
