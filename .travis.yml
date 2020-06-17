@@ -1,0 +1,9 @@
+os:
+  - linux
+dist: trusty
+language: java
+jdk: oraclejdk11
+jobs:
+  include:
+    - stage: build
+      script: scripts/1_setup_jmc.sh

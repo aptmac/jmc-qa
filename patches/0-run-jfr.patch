@@ -1,0 +1,34 @@
+diff --git a/application/pom.xml b/application/pom.xml
+index adefed2..377ec17 100644
+--- a/application/pom.xml
++++ b/application/pom.xml
+@@ -46,7 +46,7 @@
+ 		<maven.compiler.target>1.8</maven.compiler.target>
+ 		<spotless.config.path>${basedir}/../configuration/ide/eclipse/formatting/formatting.xml</spotless.config.path>
+ 		<jfr.tests/>
+-		<jfr.vmargs>-XX:+UnlockCommercialFeatures -XX:+FlightRecorder</jfr.vmargs>
++		<jfr.vmargs>-XX:+FlightRecorder</jfr.vmargs>
+ 	</properties>
+ 
+ 	<modules>
+@@ -118,20 +118,6 @@
+ 		<module>coverage</module>
+ 	</modules>
+ 	<profiles>
+-		<profile>
+-			<id>no-jfr</id>
+-			<activation>
+-				<property>
+-					<name>java.runtime.name</name>
+-					<value>OpenJDK Runtime Environment</value>
+-				</property>
+-				<jdk>(,11)</jdk>
+-			</activation>
+-			<properties>
+-				<jfr.tests>org.openjdk.jmc.rjmx.test.services.CommercialFeaturesServiceTest,org.openjdk.jmc.flightrecorder.controlpanel.ui.model.test.EventConfigurationModelTest,org.openjdk.jmc.flightrecorder.controlpanel.ui.test.PropertyContentBuilderTest,org.openjdk.jmc.flightrecorder.controlpanel.ui.model.test.JfcAndServerSettingsCombinationTest,org.openjdk.jmc.rjmx.services.jfr.test.EventMetadataTest,org.openjdk.jmc.rjmx.services.jfr.test.EventTemplateTest,org.openjdk.jmc.rjmx.services.jfr.test.JfrControlTest,org.openjdk.jmc.rjmx.services.jfr.test.JfrPackageExampleTest,org.openjdk.jmc.rjmx.services.jfr.test.OnlineEventOptionsTest,org.openjdk.jmc.rjmx.services.jfr.test.RecordingOptionsTest,org.openjdk.jmc.flightrecorder.uitest.JfrWizardTest,org.openjdk.jmc.flightrecorder.uitest.TemplateManagerTest,org.openjdk.jmc.flightrecorder.uitest.ControlRecordingsTest,org.openjdk.jmc.console.uitest.DiagnosticCommandsTabTest</jfr.tests>
+-				<jfr.vmargs/>
+-			</properties>
+-		</profile>
+ 		<profile>
+ 			<id>uitests</id>
+ 			<modules>
