@@ -2,7 +2,7 @@
 JMC_REPO=https://github.com/openjdk/jmc.git
 
 # jmc
-JMC_QA=$(dirname "$0")/../
+JMC_QA=$(dirname "$0")/..
 JMC_ROOT=$JMC_QA/jmc
 JMC_CORE=$JMC_ROOT/core
 JMC_THIRD_PARTY=$JMC_ROOT/releng/third-party
