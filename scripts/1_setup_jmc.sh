@@ -15,14 +15,14 @@ git apply ../patches/0-run-jfr.patch;
 cd ..;
 
 # setup the p2 repository
-mvn p2:site -f $JMC_THIRD_PARTY/pom.xml || { echo $P2_ERROR; exit 1; };
+mvn p2:site -f $JMC_THIRD_PARTY/pom.xml --quiet || { echo $P2_ERROR; exit 1; };
 
 # run the jetty server in the background
-mvn jetty:run -f $JMC_THIRD_PARTY/pom.xml &
+mvn jetty:run -f $JMC_THIRD_PARTY/pom.xml --quiet &
 jetty_pid=$!;
 
 # build jmc-core
-mvn clean install -f $JMC_CORE/pom.xml || { echo $JMC_CORE_BUILD_ERROR; kill $jetty_pid; exit 1; };
+mvn clean install -f $JMC_CORE/pom.xml --quiet || { echo $JMC_CORE_BUILD_ERROR; kill $jetty_pid; exit 1; };
 
 # build jmc w/spotbugs disabled for logs
 cd $JMC_ROOT;
