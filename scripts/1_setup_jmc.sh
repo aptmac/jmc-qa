@@ -24,9 +24,9 @@ jetty_pid=$!;
 # build jmc-core
 mvn clean install -f $JMC_CORE/pom.xml || { echo $JMC_CORE_BUILD_ERROR; kill $jetty_pid; exit 1; };
 
-# build jmc w/spotbugs enabled
+# build jmc w/spotbugs disabled for logs
 cd $JMC_ROOT;
-mvn verify || { echo $JMC_BUILD_ERROR; kill $jetty_pid; exit 1;}
+mvn verify -Dspotbugs.skip=true || { echo $JMC_BUILD_ERROR; kill $jetty_pid; exit 1;}
 
 # kill the jetty process
 kill $jetty_pid;
